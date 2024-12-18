@@ -73,17 +73,14 @@ export function NotesScreen() {
     <YStack
       f={1}
       jc="center"
-      ai="center"
-      gap="$8"
+      gap="$4"
       p="$4"
       bg="$background"
       t="$8"
-      pos="absolute"
       w="100%">
-      <YStack gap="$4">
 
-        <YStack padding="$3" maxWidth='100%'
-          w="100%" space="$4">
+<YStack  maxWidth='100%'
+          w="100%" space="$4" gap="$4">
           <XStack alignItems="center" space="$4">
             <Button {...linkProps}>Create Note</Button>
             <Button
@@ -118,9 +115,6 @@ export function NotesScreen() {
               />
           </YStack>
         </YStack>
-        <Separator />
-
-      </YStack>
     </YStack >
   )
 }

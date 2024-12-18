@@ -10,7 +10,7 @@ import {
   Sheet,
   TooltipSimple,
   Unspaced,
-  TextArea,
+  Text,
 } from "tamagui";
 
 import { X } from '@tamagui/lucide-icons'
@@ -19,7 +19,6 @@ import { X } from '@tamagui/lucide-icons'
 const Highlight = styled(View, {
   color: 'tomato',
 })
-
 
 export const NoteCard = ({ title, description, date, keyword }) => {
   const theme = useTheme();
@@ -35,24 +34,19 @@ export const NoteCard = ({ title, description, date, keyword }) => {
         color: "#fff",
         backgroundColor: '#32efas',
       }}>
-        <Paragraph numberOfLines={10}
+        <Paragraph
           style={{ fontSize: 20, fontWeight: Bold, color: "#000", width: '100%', font: "inherit" }}>
-          {title}
+          <Text>{title}</Text>
         </Paragraph>
         <Separator />
 
-        <Paragraph
-          numberOfLines={1}
-          style={{ fontSize: 10, color: 'tomato', }}
-        >
-          {date}
+        <Paragraph style={{ fontSize: 10, color: 'tomato', }}>
+        <Text style={{ float: 'right', }}>{date}</Text>
         </Paragraph>
 
         <Paragraph
-          numberOfLines={4}
           style={{ fontSize: 14, color: "#000", }}
-        >
-          {description}
+        ><Text>{description}</Text>
         </Paragraph>
         <Separator />
       </Card.Header>
@@ -83,16 +77,14 @@ export const NoteCard = ({ title, description, date, keyword }) => {
               animation="slow"
               opacity={0.5}
               enterStyle={{ opacity: 0 }}
-              exitStyle={{ opacity: 0 }}
-            />
+              exitStyle={{ opacity: 0 }}/>
 
             <Dialog.Content
               bordered
               elevate
               key="content"
               animateOnly={['transform', 'opacity']}
-              animation={[
-                'quicker',
+              animation={['quicker',
                 {
                   opacity: {
                     overshootClamping: true,
@@ -101,26 +93,26 @@ export const NoteCard = ({ title, description, date, keyword }) => {
               ]}
               enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
               exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
-              gap="$4"
-            >
+              gap="$4">
               <Dialog.Title>Edit Note</Dialog.Title>
               <Fieldset gap="$4" horizontal>
                 <Label width={130} justifyContent="flex-end" htmlFor="name">
-                  Title
+                  <Text>Title</Text>
                 </Label>
                 <Input flex={1} id="name" defaultValue={title} />
               </Fieldset>
               <Fieldset gap="$4" horizontal>
                 <Label width={130} justifyContent="flex-end" htmlFor="username">
                   <TooltipSimple label="Pick your favorite" placement="bottom-start">
-                    <Paragraph>Description</Paragraph>
+                    <Paragraph>
+                     <Text>Description</Text>
+                    </Paragraph>
                   </TooltipSimple>
                 </Label>
                 <Input flex={1} id="description" defaultValue={description} />
               </Fieldset>
 
               <XStack alignSelf="flex-end" gap="$4">
-
                 <Dialog.Close displayWhenAdapted asChild>
                   <Button theme="active" aria-label="Close">
                     Save changes

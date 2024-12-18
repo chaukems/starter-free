@@ -1,9 +1,7 @@
-import { UserDetailScreen } from 'app/features/user/detail-screen'
+import { NotesScreen } from 'app/features/notes/notes-screen'
 import { Stack } from 'expo-router'
-import { useParams } from 'solito/navigation'
 
 export default function Screen() {
-  const { id } = useParams()
   return (
     <>
       <Stack.Screen
@@ -15,7 +13,7 @@ export default function Screen() {
           gestureDirection: 'horizontal',
         }}
       />
-      <UserDetailScreen id={id as string} />
+      <NotesScreen />
     </>
   )
 }

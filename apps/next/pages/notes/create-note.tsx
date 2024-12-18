@@ -1,0 +1,1 @@
+export { CreateNoteScreen as default } from 'app/features/notes/create-note'
